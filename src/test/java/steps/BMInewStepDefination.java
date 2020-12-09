@@ -47,7 +47,7 @@ public class BMInewStepDefination extends BaseClass{
 	public void he_should_get_message(String MessageRcvd) {
 		bmiP=PageFactory.initElements(driver,BMInewPage.class );
 		bmiP.verifyMessage(MessageRcvd);
-System.out.println("hsjdjsh");
+
 	}
 	
 	
