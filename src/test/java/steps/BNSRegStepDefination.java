@@ -24,14 +24,14 @@ public class BNSRegStepDefination extends BaseClass{
 		bns.enterLastName(LN);
 		bns.enterEmail(EM);
 		bns.enterPassword(PW);
-		bns.enterPhoneNo(PH);
+		bns.enterPhone(PH);
 	    
 	}
 
 	@When("User will select birthday {string} from month dropdown, {string} from day dorpdownn, {string} from year dropdown")
 	public void user_will_select_birthday_from_month_dropdown_from_day_dorpdownn_from_year_dropdown(String MN, String DY, String YR) {
 		bns=PageFactory.initElements(driver,BNSRegPage.class);
-		bns.SelectMonth(MN);
+		bns.selectMonth(MN);
 		bns.selectDay(DY);
 		bns.selectYear(YR);
 		
@@ -41,18 +41,14 @@ public class BNSRegStepDefination extends BaseClass{
 	public void user_will_click_on_radiobutton(String GNDR) throws InterruptedException {
 		bns=PageFactory.initElements(driver,BNSRegPage.class);
 		if(GNDR.equalsIgnoreCase("Male")) {
-			bns.clickOnMaleRadioBTN();
+			bns.clickMale();
 		}else if(GNDR.equalsIgnoreCase("Female")) {
-			bns.clickOnFemaleRadioBTN();
+			bns.clickFemale();
 		}
 	    Thread.sleep(4000);
 	}
 
-	@When("User click on SSN Checkbox")
-	public void user_click_on_SSN_Checkbox() {
-		bns=PageFactory.initElements(driver,BNSRegPage.class);
-	    bns.clickSsnBTN();
-	}
+	
 
 	@Then("User should create new account successfully")
 	public void user_should_create_new_account_successfully() {

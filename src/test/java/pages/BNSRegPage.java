@@ -12,88 +12,82 @@ import basePack.BaseClass;
 
 public class BNSRegPage extends BaseClass{
 	
-	@FindBy(how=How.ID, using="FN")
-	WebElement firstname;
-	
-	public void enterFirstName(String fname) {
-		List<WebElement>list=driver.findElements(By.id("FN"));
-		for(int i=0; i<list.size();i++) {
-			firstname=list.get(i);
-			int x=firstname.getLocation().getX();
-			if(x!=0) {
-				firstname.sendKeys(fname);
-				break;
-			}
-		
-		}
-		
-	}
-	@FindBy(id="LN")
-	WebElement lastname;
-	public void enterLastName(String lname) {
-		lastname.sendKeys(lname);
-	}
-	@FindBy(xpath="//*[@id=\"EM\"]")
-	WebElement email;
-	public void enterEmail(String Em) {
-		email.sendKeys(Em);
-	}
-	
-	@FindBy(name="Pass")
-	WebElement password;
-	public void enterPassword(String pWord) {
-		password.sendKeys(pWord);
-	}
-	
-	@FindBy(id="PH")
-	WebElement PhoneNo;
-	public void enterPhoneNo(String pNo) {
-		PhoneNo.sendKeys(pNo);
-	}
-	
-	@FindBy(id="MN")
-	WebElement monthName;
-	
-	public void SelectMonth(String mon) {
-		Select monnthSelect=new Select(monthName);
-		monnthSelect.selectByVisibleText(mon);
-	}
-	
-	
-	@FindBy(id="DY")
-	WebElement daySelect;
-	public void selectDay(String day) {
-		Select deySelect=new Select(daySelect);
-		deySelect.selectByVisibleText(day);
-	}
-	
-	@FindBy(id="YR")
-	WebElement yearSelect;
-	public void selectYear(String year) {
-		Select yerSelect =new Select(yearSelect);
-		yerSelect.selectByVisibleText(year);
-	}
-	@FindBy(xpath="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[7]")
-	WebElement MaleRadioBTN;
-	public void clickOnMaleRadioBTN() {
-		MaleRadioBTN.click();
-	}
-	@FindBy(xpath="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[9]")
-	WebElement FemaleRadioBTN;
-	public void clickOnFemaleRadioBTN() {
-		FemaleRadioBTN.click();
-	}
-	
-	@FindBy(name="SSN")
+	@FindBy(how=How.XPATH, using ="html/body/div/div[2]/form/input[1]")
+    WebElement firstname;
+    public void enterFirstName(String FN) {
+        List<WebElement>list=driver.findElements(By.id("FN"));
+        for(int i=0; i<list.size(); i++) {
+            firstname=list.get(i);
+            int x=firstname.getLocation().getX();
+            if(x!=0) {
+                firstname.sendKeys(FN);
+                break;
+            }
+        }
+        
+    }
+    @FindBy(how=How.NAME, using ="LName")
+    WebElement lastname;
+    public void enterLastName(String LN) {
+        lastname.sendKeys(LN);
+    }
+    @FindBy(how=How.NAME, using ="Email")
+    WebElement email;
+    public void enterEmail(String EM) {
+        email.sendKeys(EM);
+    }
+    @FindBy(how=How.NAME, using ="Pass")
+    WebElement password;
+    public void enterPassword(String PW) {
+        password.sendKeys(PW);
+    }
+    @FindBy(how=How.NAME, using ="Phone")
+    WebElement phone;
+    
+    public void enterPhone(String Pho) {
+        phone.sendKeys(Pho);
+    }
+    @FindBy(how=How.NAME, using ="month")
+    WebElement Month;
+    public void selectMonth(String MN) {
+        Select mselect=new Select(Month);
+        mselect.selectByVisibleText(MN);
+    }
+    @FindBy(how=How.NAME, using ="day")
+    WebElement Day;
+    public void selectDay(String DY) {
+        Select dayselect=new Select(Day);
+        dayselect.selectByVisibleText(DY);
+    }
+    @FindBy(how=How.NAME, using ="year")
+    WebElement Year;
+    public void selectYear(String YR) {
+        Select mselect=new Select(Year);
+        mselect.selectByVisibleText(YR);
+    }
+    @FindBy(how=How.XPATH, using ="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[7]")
+    WebElement male;
+    
+    public void clickMale() {
+        male.click();
+    }
+    @FindBy(how=How.XPATH, using ="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[9]")
+    WebElement female;
+    
+    public void clickFemale() {
+        female.click();
+    }
+    
+    @FindBy(name="SSN")
 	WebElement SSNCheckBTN;
 	public void clickSsnBTN() {
 		SSNCheckBTN.click();
 	}
-	
-	@FindBy(xpath="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[12]")
-	WebElement submitBtn;
-	public void clickOnSubmitBTN() {
-		submitBtn.click();
-	}     
-
+    
+    @FindBy(how=How.XPATH, using ="//*[@id=\"content\"]/article/div/div/div/div/section[1]/div/div/div/div/div/div/div/div/div[2]/input[12]")
+    WebElement submitBtn;
+    
+    public void clickSubmit() {
+        submitBtn.click();;
+    }
 }

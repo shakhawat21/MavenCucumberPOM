@@ -27,7 +27,8 @@ public class BNSDataTableStepDefination extends BaseClass{
 	    bnsp.enterLastName(data1.get(1));
 	    bnsp.enterEmail(data1.get(2));
 	    bnsp.enterPassword(data1.get(3));
-	    bnsp.enterPhoneNo(data1.get(4));
+	    bnsp.enterPhone(data1.get(4));
+	    //bnsp.enterPhoneNo(data1.get(4));
 	    
 	}
 
@@ -35,7 +36,8 @@ public class BNSDataTableStepDefination extends BaseClass{
 	public void user_will_select_from_following_table(DataTable table2) {
 		bnsp=PageFactory.initElements(driver,BNSRegPage.class);
 		List<String>data2=table2.column(1);
-		bnsp.SelectMonth(data2.get(0));
+		bnsp.selectMonth(data2.get(0));
+		
 		bnsp.selectDay(data2.get(1));
 		bnsp.selectYear(data2.get(2));
 	    
@@ -45,7 +47,7 @@ public class BNSDataTableStepDefination extends BaseClass{
 	public void user_will_click_on_following_table(DataTable table3) {
 		bnsp=PageFactory.initElements(driver,BNSRegPage.class);
 		List<String>data3=table3.column(0);
-		bnsp.clickOnMaleRadioBTN();
+		bnsp.clickMale();
 	}
 
 	@When("user will click on SSN check box")
