@@ -19,8 +19,8 @@ public class BNSExcelStepDefination extends BaseClass{
     List<HashMap<String,String>>datamap;
     
  public BNSExcelStepDefination() throws IOException{
-        
-        datamap= BDDExcelFileReader.getdata(System.getProperty("user.dir")+"//src//test//resources//TestData//BNSData.xlsx", "Data1");
+
+       datamap= BDDExcelFileReader.getdata(System.getProperty("user.dir")+"//src//test//resources//TestData//BNSData.xlsx", "Data1");
     }
 
 	@Given("User is on BNS login webpage")
